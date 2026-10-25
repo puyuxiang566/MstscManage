@@ -1,0 +1,18 @@
+# 构建产物
+src/bin/
+src/obj/
+*.log
+
+# 运行时活数据（主机库与配置，切勿提交）
+MstscManage.db
+Config.ini
+
+# Visual Studio / 本地工具
+.vs/
+*.user
+*.suo
+.zcode/
+
+# Windows 杂项
+Thumbs.db
+Desktop.ini
