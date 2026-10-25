@@ -1,6 +1,9 @@
 # 远程桌面管理工具（MstscManage）
 
-基于 .NET Framework 4.8 的 Windows 窗体应用程序，用于管理并批量连接远程桌面（RDP）主机。
+基于 .NET Framework 4.8 的 Windows 窗体应用程序，用于管理并批量连接远程桌面（RDP）主机。支持使用系统自带MSTSC和内置远程方式,同时支持右键tvnviewer连接
+
+<img width="726" height="579" alt="Snipaste_2026-10-25_14-06-12" src="https://github.com/user-attachments/assets/9232eab9-2bdb-4400-a59c-aff4776b1ab8" />
+
 
 ## 目录结构
 
@@ -42,6 +45,7 @@
       └─ System.Data.SQLite.dll   # SQLite 数据库驱动（混合模式程序集，内嵌原生 SQLite 引擎）
 ```
 
+
 ## 编译方法
 
 ### 方式一：命令行一键编译
@@ -59,3 +63,4 @@ build.bat
 - .NET Framework 4.8 运行时
 - 编译平台必须为 **x86**（远程桌面 ActiveX 控件为 32 位 COM 组件）
 - 无需安装 NuGet 包，所有依赖 DLL 均在 `src\libs\` 目录中
+- 右键tvnviewer连接,可自行准备tvnviewer.exe放入同目录下,编译文件已经附带
