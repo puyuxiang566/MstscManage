@@ -9,6 +9,8 @@
     <RootNamespace>MstscManage</RootNamespace>
     <AssemblyName>MstscManage</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <!-- 本机未装 .NET 4.8 Developer Pack 时改用随仓库分发的引用程序集，避免 MSB3644/MSB3247（回退 GAC 解析导致版本冲突） -->
+    <TargetFrameworkRootPath Condition="'$(TargetFrameworkRootPath)' == '' and Exists('$(MSBuildProjectDirectory)\packages\Microsoft.NETFramework.ReferenceAssemblies.net48.1.0.3\build\.NETFramework\v4.8\RedistList\FrameworkList.xml')">$(MSBuildProjectDirectory)\packages\Microsoft.NETFramework.ReferenceAssemblies.net48.1.0.3\build</TargetFrameworkRootPath>
     <FileAlignment>512</FileAlignment>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <ApplicationIcon>MstscManage.ico</ApplicationIcon>

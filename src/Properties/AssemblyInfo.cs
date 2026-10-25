@@ -7,7 +7,7 @@ using System.Runtime.Versioning;
 using System.Security;
 using System.Security.Permissions;
 
-[assembly: AssemblyVersion("1.0.7623.33004")]
+[assembly: AssemblyVersion("1.0.1.0")]
 [assembly: AssemblyTitle("RemoteDesktopClient")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
@@ -17,5 +17,5 @@ using System.Security.Permissions;
 [assembly: AssemblyTrademark("")]
 [assembly: ComVisible(false)]
 [assembly: Guid("3d08d623-2599-41c1-ac13-85bdc0092129")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.1.0")]
 

@@ -7856,16 +7856,16 @@ public interface IMsRdpDeviceCollection
 	[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
 	void RescanDevices([In] bool vboolDynRedir);
 
-	// C# has no syntax for parameterized property 'DeviceByIndex'.
-	// Its 'property:' attributes below are ignored by the compiler (CS0657).
-	[property: DispId(228)]
+	// C# has no syntax for parameterized property 'DeviceByIndex';
+	// tlbimp emits it as a get_ method, keeping the DispId for IDispatch binding.
+	[DispId(228)]
 	[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
 	[return: MarshalAs(UnmanagedType.Interface)]
 	IMsRdpDevice get_DeviceByIndex([In] uint index);
 
-	// C# has no syntax for parameterized property 'DeviceById'.
-	// Its 'property:' attributes below are ignored by the compiler (CS0657).
-	[property: DispId(227)]
+	// C# has no syntax for parameterized property 'DeviceById';
+	// tlbimp emits it as a get_ method, keeping the DispId for IDispatch binding.
+	[DispId(227)]
 	[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
 	[return: MarshalAs(UnmanagedType.Interface)]
 	IMsRdpDevice get_DeviceById([In][MarshalAs(UnmanagedType.BStr)] string devInstanceId);
@@ -7924,9 +7924,9 @@ public interface IMsRdpDriveCollection
 	[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
 	void RescanDrives(bool vboolDynRedir);
 
-	// C# has no syntax for parameterized property 'DriveByIndex'.
-	// Its 'property:' attributes below are ignored by the compiler (CS0657).
-	[property: DispId(231)]
+	// C# has no syntax for parameterized property 'DriveByIndex';
+	// tlbimp emits it as a get_ method, keeping the DispId for IDispatch binding.
+	[DispId(231)]
 	[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
 	[return: MarshalAs(UnmanagedType.Interface)]
 	IMsRdpDrive get_DriveByIndex([In] uint index);
@@ -12317,9 +12317,9 @@ public interface IMsRdpPreferredRedirectionInfo
 [InterfaceType(1)]
 public interface IMsRdpExtendedSettings
 {
-	// C# has no syntax for parameterized property 'Property'.
-	// Its 'property:' attributes below are ignored by the compiler (CS0657).
-	[property: DispId(1)]
+	// C# has no syntax for parameterized property 'Property';
+	// tlbimp emits it as a get_ method, keeping the DispId for IDispatch binding.
+	[DispId(1)]
 	[MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
 	[return: MarshalAs(UnmanagedType.Struct)]
 	object get_Property([In][MarshalAs(UnmanagedType.BStr)] string bstrPropertyName);
@@ -18734,7 +18734,12 @@ internal sealed class IMsTscAxEvents_EventProvider : IMsTscAxEvents_Event, IDisp
 		m_ConnectionPointContainer = (IConnectionPointContainer)P_0;
 	}
 
-	public void Finalize()
+	~IMsTscAxEvents_EventProvider()
+	{
+		Cleanup();
+	}
+
+	private void Cleanup()
 	{
 		bool lockTaken = default(bool);
 		try
@@ -18773,7 +18778,7 @@ internal sealed class IMsTscAxEvents_EventProvider : IMsTscAxEvents_Event, IDisp
 	public void Dispose()
 	{
 		//Error decoding local variables: Signature type sequence must have at least one element.
-		Finalize();
+		Cleanup();
 		GC.SuppressFinalize(this);
 	}
 }
@@ -20134,7 +20139,12 @@ internal sealed class IRemoteDesktopClientEvents_EventProvider : IRemoteDesktopC
 		m_ConnectionPointContainer = (IConnectionPointContainer)P_0;
 	}
 
-	public void Finalize()
+	~IRemoteDesktopClientEvents_EventProvider()
+	{
+		Cleanup();
+	}
+
+	private void Cleanup()
 	{
 		bool lockTaken = default(bool);
 		try
@@ -20173,7 +20183,7 @@ internal sealed class IRemoteDesktopClientEvents_EventProvider : IRemoteDesktopC
 	public void Dispose()
 	{
 		//Error decoding local variables: Signature type sequence must have at least one element.
-		Finalize();
+		Cleanup();
 		GC.SuppressFinalize(this);
 	}
 }

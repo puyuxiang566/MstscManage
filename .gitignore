@@ -16,3 +16,6 @@ Config.ini
 # Windows 杂项
 Thumbs.db
 Desktop.ini
+
+# .NET 引用程序集兜底包（体积大，不入库；缺失时构建仍可用，见 README）
+src/packages/
